@@ -26,7 +26,7 @@ namespace DamianAutoCAD {
             Database thisDb = dm.MdiActiveDocument.Database;
             Database sourceDb = new Database(false, true);
             string cDir = System.IO.Directory.GetCurrentDirectory();
-            string sFile = @"PunktGraniczny.dwg";
+            string sFile = @"Drawing with block\\PunktGraniczny.dwg";
 
             //Odczytywanie innego pliku DWG....
             sourceDb.ReadDwgFile(sFile, System.IO.FileShare.Read, true, "");

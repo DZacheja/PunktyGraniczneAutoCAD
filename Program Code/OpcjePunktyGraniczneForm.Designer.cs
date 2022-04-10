@@ -29,6 +29,7 @@ namespace DamianAutoCAD
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPharameters2 = new System.Windows.Forms.TextBox();
@@ -50,14 +51,28 @@ namespace DamianAutoCAD
             this.label5 = new System.Windows.Forms.Label();
             this.chkNewLayer = new System.Windows.Forms.CheckBox();
             this.cboLayers = new System.Windows.Forms.ComboBox();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.lblInfo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpLayers.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.grpLayers);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(432, 406);
+            this.panel2.TabIndex = 7;
             // 
             // label1
             // 
@@ -84,8 +99,8 @@ namespace DamianAutoCAD
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 107);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(432, 107);
+            this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametry wyboru:";
             // 
@@ -201,8 +216,8 @@ namespace DamianAutoCAD
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 67);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.Size = new System.Drawing.Size(432, 67);
+            this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry wyników";
             // 
@@ -241,8 +256,8 @@ namespace DamianAutoCAD
             this.grpLayers.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpLayers.Location = new System.Drawing.Point(0, 198);
             this.grpLayers.Name = "grpLayers";
-            this.grpLayers.Size = new System.Drawing.Size(422, 100);
-            this.grpLayers.TabIndex = 3;
+            this.grpLayers.Size = new System.Drawing.Size(432, 100);
+            this.grpLayers.TabIndex = 15;
             this.grpLayers.TabStop = false;
             this.grpLayers.Text = "Warstwa:";
             this.grpLayers.Visible = false;
@@ -303,15 +318,15 @@ namespace DamianAutoCAD
             this.cboLayers.Size = new System.Drawing.Size(308, 21);
             this.cboLayers.TabIndex = 0;
             // 
-            // btnStart
+            // panel1
             // 
-            this.btnStart.Location = new System.Drawing.Point(311, 3);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 4;
-            this.btnStart.Text = "Wykonaj";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.panel1.Controls.Add(this.lblInfo);
+            this.panel1.Controls.Add(this.btnStart);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 298);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(432, 54);
+            this.panel1.TabIndex = 16;
             // 
             // lblInfo
             // 
@@ -322,30 +337,32 @@ namespace DamianAutoCAD
             this.lblInfo.TabIndex = 5;
             this.lblInfo.Text = "informacje...";
             // 
-            // panel1
+            // btnStart
             // 
-            this.panel1.Controls.Add(this.lblInfo);
-            this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 298);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(422, 54);
-            this.panel1.TabIndex = 6;
+            this.btnStart.Location = new System.Drawing.Point(311, 3);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Wykonaj";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // OpcjePunktyGraniczneForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 358);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.grpLayers);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(432, 406);
+            this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(450, 450);
             this.Name = "OpcjePunktyGraniczneForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "OpcjePunktyGraniczneForm";
             this.Load += new System.EventHandler(this.OpcjePunktyGraniczneForm_Load);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -355,35 +372,35 @@ namespace DamianAutoCAD
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.GroupBox grpLayers;
+        private System.Windows.Forms.RadioButton rbnCopy;
+        private System.Windows.Forms.RadioButton rbnMove;
+        private System.Windows.Forms.TextBox txtNameOfNewLayer;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chkNewLayer;
+        private System.Windows.Forms.ComboBox cboLayers;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbnSaveToLayer;
+        private System.Windows.Forms.RadioButton rbnSelect;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtPharameters2;
+        private System.Windows.Forms.ComboBox cboEquals2;
+        private System.Windows.Forms.ComboBox cboTypeValue2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPharameters;
         private System.Windows.Forms.ComboBox cboEquals;
         private System.Windows.Forms.ComboBox cboTypeValue;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox grpLayers;
-        private System.Windows.Forms.TextBox txtNameOfNewLayer;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox chkNewLayer;
-        private System.Windows.Forms.ComboBox cboLayers;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.RadioButton rbnSaveToLayer;
-        private System.Windows.Forms.RadioButton rbnSelect;
-        private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.TextBox txtPharameters2;
-        private System.Windows.Forms.ComboBox cboEquals2;
-        private System.Windows.Forms.ComboBox cboTypeValue2;
-        private System.Windows.Forms.RadioButton rbnCopy;
-        private System.Windows.Forms.RadioButton rbnMove;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
