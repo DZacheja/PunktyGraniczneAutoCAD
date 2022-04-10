@@ -58,7 +58,7 @@ namespace DamianAutoCAD {
         /// <summary>
         /// Wstawanie bloku punktu w odpowiednie miejsce z odpowiednimi atrybutami
         /// </summary>
-        /// <param name="dane">Kolekcja zawieająca parametry punktu</param>
+        /// <param name="dane">Obiekt z atrybutami dodawanego punktu</param>
         public void AddBlockWithAttributes(PunktGraniczny pkt) {
             {
                 Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -117,6 +117,10 @@ namespace DamianAutoCAD {
             }
         }
 
+        /// <summary>
+        /// Wybór punktów z rysunku
+        /// </summary>
+        /// <param name="wybory">Parametry wybieranych punktów</param>
         public void WykonajSelekcje(Dictionary<string, string> wybory) {
             ToSelect = new List<ObjectId>();
             Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -169,6 +173,14 @@ namespace DamianAutoCAD {
             }
 
         }
+
+        /// <summary>
+        /// Porównanie atrybutu z seleckją
+        /// </summary>
+        /// <param name="Value">Wartość Porównywana</param>
+        /// <param name="Equals">Operator porownania</param>
+        /// <param name="Comparison">Wartość liczbowa warunku do spełnienia</param>
+        /// <returns></returns>
         private bool CheckValueOfAttribute(string Value, string Equals, string Comparison) {
             //Funckja switch - case w zalezności od typu porównania....
             int vl, cmp;
@@ -202,15 +214,10 @@ namespace DamianAutoCAD {
             }
         }
 
-        private bool ExistInList(ObjectId obj) {
-            foreach (ObjectId id in ToSelect) {
-                if (id == obj)
-                    return true;
-            }
-            return false;
-        }
-
-
+        /// <summary>
+        /// Zaznaczenie wszystkich znalezionych elementów 
+        /// </summary>
+        /// <param name="wybory"></param>
         public void SelectFound(Dictionary<string, string> wybory) {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Database db = doc.Database;

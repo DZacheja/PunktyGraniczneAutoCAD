@@ -1,5 +1,6 @@
 ﻿/*
  * Struktura przechowująca infomacje o punkcie granicznym
+ * autor: Damian Zacheja
  */
 namespace DZacheja_PunktyGraniczne {
     public struct PunktGraniczny {

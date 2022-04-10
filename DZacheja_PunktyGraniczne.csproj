@@ -55,44 +55,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainMenu.cs" />
-    <Compile Include="OpcjePunktyGraniczneForm.cs">
+    <Compile Include="Program Code\MainMenu.cs" />
+    <Compile Include="Program Code\OpcjePunktyGraniczneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OpcjePunktyGraniczneForm.designer.cs">
+    <Compile Include="Program Code\OpcjePunktyGraniczneForm.designer.cs">
       <DependentUpon>OpcjePunktyGraniczneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PozyskanieInformacjiDWG.cs" />
+    <Compile Include="Program Code\PozyskanieInformacjiDWG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PunktGraniczny.cs" />
-    <Compile Include="PunktyGraniczne.cs" />
-    <Compile Include="Resource.Designer.cs">
+    <Compile Include="Program Code\PunktGraniczny.cs" />
+    <Compile Include="Program Code\PunktyGraniczne.cs" />
+    <Compile Include="Program Code\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="WczytajPunktyGraniczneForm.cs">
+    <Compile Include="Program Code\WczytajPunktyGraniczneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WczytajPunktyGraniczneForm.designer.cs">
+    <Compile Include="Program Code\WczytajPunktyGraniczneForm.designer.cs">
       <DependentUpon>WczytajPunktyGraniczneForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="PunktGraniczny.dwg">
+    <None Include="Program Code\PunktGraniczny.dwg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="OpcjePunktyGraniczneForm.resx">
+    <EmbeddedResource Include="Program Code\OpcjePunktyGraniczneForm.resx">
       <DependentUpon>OpcjePunktyGraniczneForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource.resx">
+    <EmbeddedResource Include="Program Code\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="WczytajPunktyGraniczneForm.resx">
+    <EmbeddedResource Include="Program Code\WczytajPunktyGraniczneForm.resx">
       <DependentUpon>WczytajPunktyGraniczneForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

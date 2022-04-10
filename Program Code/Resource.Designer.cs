@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DZacheja_PunktyGraniczne {
+namespace DZacheja_PunktyGraniczne.Program_Code {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DZacheja_PunktyGraniczne {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DZacheja_PunktyGraniczne.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DZacheja_PunktyGraniczne.Program_Code.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
