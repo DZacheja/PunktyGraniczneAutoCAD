@@ -31,6 +31,9 @@ namespace DamianAutoCAD
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPharameters2 = new System.Windows.Forms.TextBox();
+            this.cboEquals2 = new System.Windows.Forms.ComboBox();
+            this.cboTypeValue2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,20 +41,17 @@ namespace DamianAutoCAD
             this.cboEquals = new System.Windows.Forms.ComboBox();
             this.cboTypeValue = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbnSaveToLayer = new System.Windows.Forms.RadioButton();
+            this.rbnSelect = new System.Windows.Forms.RadioButton();
             this.grpLayers = new System.Windows.Forms.GroupBox();
+            this.rbnCopy = new System.Windows.Forms.RadioButton();
+            this.rbnMove = new System.Windows.Forms.RadioButton();
             this.txtNameOfNewLayer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.chkNewLayer = new System.Windows.Forms.CheckBox();
             this.cboLayers = new System.Windows.Forms.ComboBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.rbnSelect = new System.Windows.Forms.RadioButton();
-            this.rbnSaveToLayer = new System.Windows.Forms.RadioButton();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.txtPharameters2 = new System.Windows.Forms.TextBox();
-            this.cboEquals2 = new System.Windows.Forms.ComboBox();
-            this.cboTypeValue2 = new System.Windows.Forms.ComboBox();
-            this.rbnMove = new System.Windows.Forms.RadioButton();
-            this.rbnCopy = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpLayers.SuspendLayout();
@@ -61,9 +61,9 @@ namespace DamianAutoCAD
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(57, 9);
+            this.label1.Location = new System.Drawing.Point(33, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 20);
+            this.label1.Size = new System.Drawing.Size(335, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Operacje na punktach granicznych";
             // 
@@ -84,6 +84,46 @@ namespace DamianAutoCAD
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametry wyboru:";
+            // 
+            // txtPharameters2
+            // 
+            this.txtPharameters2.Location = new System.Drawing.Point(195, 73);
+            this.txtPharameters2.Name = "txtPharameters2";
+            this.txtPharameters2.Size = new System.Drawing.Size(123, 20);
+            this.txtPharameters2.TabIndex = 8;
+            // 
+            // cboEquals2
+            // 
+            this.cboEquals2.FormattingEnabled = true;
+            this.cboEquals2.Items.AddRange(new object[] {
+            "",
+            "=",
+            ">",
+            "<",
+            ">=",
+            "<=",
+            "<>"});
+            this.cboEquals2.Location = new System.Drawing.Point(113, 73);
+            this.cboEquals2.Name = "cboEquals2";
+            this.cboEquals2.Size = new System.Drawing.Size(60, 21);
+            this.cboEquals2.TabIndex = 7;
+            // 
+            // cboTypeValue2
+            // 
+            this.cboTypeValue2.FormattingEnabled = true;
+            this.cboTypeValue2.Items.AddRange(new object[] {
+            "",
+            "Numer",
+            "BPP",
+            "STB",
+            "ZRD",
+            "RZG",
+            "Plik"});
+            this.cboTypeValue2.Location = new System.Drawing.Point(6, 73);
+            this.cboTypeValue2.Name = "cboTypeValue2";
+            this.cboTypeValue2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cboTypeValue2.Size = new System.Drawing.Size(87, 21);
+            this.cboTypeValue2.TabIndex = 6;
             // 
             // label4
             // 
@@ -161,6 +201,30 @@ namespace DamianAutoCAD
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry wyników";
             // 
+            // rbnSaveToLayer
+            // 
+            this.rbnSaveToLayer.AutoSize = true;
+            this.rbnSaveToLayer.Location = new System.Drawing.Point(116, 30);
+            this.rbnSaveToLayer.Name = "rbnSaveToLayer";
+            this.rbnSaveToLayer.Size = new System.Drawing.Size(112, 17);
+            this.rbnSaveToLayer.TabIndex = 1;
+            this.rbnSaveToLayer.TabStop = true;
+            this.rbnSaveToLayer.Text = "Zapisz do warstwy";
+            this.rbnSaveToLayer.UseVisualStyleBackColor = true;
+            this.rbnSaveToLayer.CheckedChanged += new System.EventHandler(this.rbnSaveToLayer_CheckedChanged);
+            // 
+            // rbnSelect
+            // 
+            this.rbnSelect.AutoSize = true;
+            this.rbnSelect.Location = new System.Drawing.Point(10, 30);
+            this.rbnSelect.Name = "rbnSelect";
+            this.rbnSelect.Size = new System.Drawing.Size(66, 17);
+            this.rbnSelect.TabIndex = 0;
+            this.rbnSelect.TabStop = true;
+            this.rbnSelect.Text = "Zaznacz";
+            this.rbnSelect.UseVisualStyleBackColor = true;
+            this.rbnSelect.CheckedChanged += new System.EventHandler(this.rbnSelect_CheckedChanged);
+            // 
             // grpLayers
             // 
             this.grpLayers.Controls.Add(this.rbnCopy);
@@ -176,6 +240,28 @@ namespace DamianAutoCAD
             this.grpLayers.TabStop = false;
             this.grpLayers.Text = "Warstwa:";
             this.grpLayers.Visible = false;
+            // 
+            // rbnCopy
+            // 
+            this.rbnCopy.AutoSize = true;
+            this.rbnCopy.Location = new System.Drawing.Point(231, 46);
+            this.rbnCopy.Name = "rbnCopy";
+            this.rbnCopy.Size = new System.Drawing.Size(53, 17);
+            this.rbnCopy.TabIndex = 5;
+            this.rbnCopy.TabStop = true;
+            this.rbnCopy.Text = "kopiuj";
+            this.rbnCopy.UseVisualStyleBackColor = true;
+            // 
+            // rbnMove
+            // 
+            this.rbnMove.AutoSize = true;
+            this.rbnMove.Location = new System.Drawing.Point(160, 46);
+            this.rbnMove.Name = "rbnMove";
+            this.rbnMove.Size = new System.Drawing.Size(64, 17);
+            this.rbnMove.TabIndex = 4;
+            this.rbnMove.TabStop = true;
+            this.rbnMove.Text = "przenieś";
+            this.rbnMove.UseVisualStyleBackColor = true;
             // 
             // txtNameOfNewLayer
             // 
@@ -221,30 +307,6 @@ namespace DamianAutoCAD
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // rbnSelect
-            // 
-            this.rbnSelect.AutoSize = true;
-            this.rbnSelect.Location = new System.Drawing.Point(10, 30);
-            this.rbnSelect.Name = "rbnSelect";
-            this.rbnSelect.Size = new System.Drawing.Size(66, 17);
-            this.rbnSelect.TabIndex = 0;
-            this.rbnSelect.TabStop = true;
-            this.rbnSelect.Text = "Zaznacz";
-            this.rbnSelect.UseVisualStyleBackColor = true;
-            this.rbnSelect.CheckedChanged += new System.EventHandler(this.rbnSelect_CheckedChanged);
-            // 
-            // rbnSaveToLayer
-            // 
-            this.rbnSaveToLayer.AutoSize = true;
-            this.rbnSaveToLayer.Location = new System.Drawing.Point(116, 30);
-            this.rbnSaveToLayer.Name = "rbnSaveToLayer";
-            this.rbnSaveToLayer.Size = new System.Drawing.Size(112, 17);
-            this.rbnSaveToLayer.TabIndex = 1;
-            this.rbnSaveToLayer.TabStop = true;
-            this.rbnSaveToLayer.Text = "Zapisz do warstwy";
-            this.rbnSaveToLayer.UseVisualStyleBackColor = true;
-            this.rbnSaveToLayer.CheckedChanged += new System.EventHandler(this.rbnSaveToLayer_CheckedChanged);
-            // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
@@ -253,68 +315,6 @@ namespace DamianAutoCAD
             this.lblInfo.Size = new System.Drawing.Size(64, 13);
             this.lblInfo.TabIndex = 5;
             this.lblInfo.Text = "informacje...";
-            // 
-            // txtPharameters2
-            // 
-            this.txtPharameters2.Location = new System.Drawing.Point(195, 73);
-            this.txtPharameters2.Name = "txtPharameters2";
-            this.txtPharameters2.Size = new System.Drawing.Size(123, 20);
-            this.txtPharameters2.TabIndex = 8;
-            // 
-            // cboEquals2
-            // 
-            this.cboEquals2.FormattingEnabled = true;
-            this.cboEquals2.Items.AddRange(new object[] {
-            "",
-            "=",
-            ">",
-            "<",
-            ">=",
-            "<=",
-            "<>"});
-            this.cboEquals2.Location = new System.Drawing.Point(113, 73);
-            this.cboEquals2.Name = "cboEquals2";
-            this.cboEquals2.Size = new System.Drawing.Size(60, 21);
-            this.cboEquals2.TabIndex = 7;
-            // 
-            // cboTypeValue2
-            // 
-            this.cboTypeValue2.FormattingEnabled = true;
-            this.cboTypeValue2.Items.AddRange(new object[] {
-            "",
-            "Numer",
-            "BPP",
-            "STB",
-            "ZRD",
-            "RZG",
-            "Plik"});
-            this.cboTypeValue2.Location = new System.Drawing.Point(6, 73);
-            this.cboTypeValue2.Name = "cboTypeValue2";
-            this.cboTypeValue2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cboTypeValue2.Size = new System.Drawing.Size(87, 21);
-            this.cboTypeValue2.TabIndex = 6;
-            // 
-            // rbnMove
-            // 
-            this.rbnMove.AutoSize = true;
-            this.rbnMove.Location = new System.Drawing.Point(160, 46);
-            this.rbnMove.Name = "rbnMove";
-            this.rbnMove.Size = new System.Drawing.Size(64, 17);
-            this.rbnMove.TabIndex = 4;
-            this.rbnMove.TabStop = true;
-            this.rbnMove.Text = "przenieś";
-            this.rbnMove.UseVisualStyleBackColor = true;
-            // 
-            // rbnCopy
-            // 
-            this.rbnCopy.AutoSize = true;
-            this.rbnCopy.Location = new System.Drawing.Point(231, 46);
-            this.rbnCopy.Name = "rbnCopy";
-            this.rbnCopy.Size = new System.Drawing.Size(53, 17);
-            this.rbnCopy.TabIndex = 5;
-            this.rbnCopy.TabStop = true;
-            this.rbnCopy.Text = "kopiuj";
-            this.rbnCopy.UseVisualStyleBackColor = true;
             // 
             // OpcjePunktyGraniczneForm
             // 

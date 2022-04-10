@@ -475,7 +475,7 @@ namespace DamianAutoCAD
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(55, 57);
+            this.label10.Location = new System.Drawing.Point(42, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 16);
             this.label10.TabIndex = 2;
@@ -494,7 +494,7 @@ namespace DamianAutoCAD
             // txtTextHeight
             // 
             this.txtTextHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtTextHeight.Location = new System.Drawing.Point(110, 23);
+            this.txtTextHeight.Location = new System.Drawing.Point(130, 23);
             this.txtTextHeight.Name = "txtTextHeight";
             this.txtTextHeight.Size = new System.Drawing.Size(41, 22);
             this.txtTextHeight.TabIndex = 0;

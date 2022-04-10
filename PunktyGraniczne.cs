@@ -51,7 +51,13 @@ namespace DamianAutoCAD {
                 Document doc = Application.DocumentManager.MdiActiveDocument;
                 Database db = doc.Database;
                 using (DocumentLock docLoc = doc.LockDocument()) {
-                    string BlockName = "PunktGraniczny";
+                    string BlockName = "";
+                    BlockName = "PunktGranicznyNiestabilizowany";
+                    if (!String.IsNullOrEmpty(dane["STB"])) {
+                        if (Convert.ToInt32(dane["STB"]) > 2) {
+                            BlockName = "PunktGranicznyStabilizowany";
+                        }
+                    }
                     Transaction tr = db.TransactionManager.StartTransaction();
                     using (tr) {
                         //Pobierz definicje bloku...
@@ -112,7 +118,8 @@ namespace DamianAutoCAD {
                     }
                     TypedValue[] filter = new TypedValue[2];
                     filter[0] = new TypedValue(0, "INSERT");
-                    filter[1] = new TypedValue(2, "PunktGraniczny");
+                    filter[1] = new TypedValue(2, "PunktGranicznyStabilizowany,PunktGranicznyNiestabilizowany");
+
                     SelectionFilter SFilter = new SelectionFilter(filter);
                     PromptSelectionOptions pso = new PromptSelectionOptions();
 
@@ -121,6 +128,7 @@ namespace DamianAutoCAD {
                     if (psr.Status != PromptStatus.OK) {
                         error = true;
                         errorMessage = "Nie znaleziono wczytanych punktów granicznych!";
+                        edt.WriteMessage(errorMessage);
                         return;
                     }
 
@@ -141,7 +149,7 @@ namespace DamianAutoCAD {
                             }
                         }
                     }
-                    
+
                     tr.Abort();
                     SelectFound(wybory);
                 }
