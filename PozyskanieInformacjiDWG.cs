@@ -1,4 +1,8 @@
-﻿
+﻿/*
+ * Klasa pomocnicza wyciągająca rózne infomacje odnoścnie otwartego pliku w AutoCAD
+ * autor: Damian Zacheja
+ * L
+ */
 using System;
 using System.Collections.Generic;
 using Autodesk.AutoCAD.ApplicationServices;
@@ -36,6 +40,10 @@ namespace DamianAutoCAD
             
         }
 
+        /// <summary>
+        /// Dodanie warstwy do rysunku
+        /// </summary>
+        /// <param name="Layer">nazwa warstwy</param>
         internal static void AddLayer(string Layer)
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -58,6 +66,10 @@ namespace DamianAutoCAD
             }
         }
 
+        /// <summary>
+        /// Wskazanie punktu na ekranie przez użytkownika
+        /// </summary>
+        /// <returns>Tablica ze współrzednymi X,Y wskazanego przez użytkownika punktu</returns>
         public static double[] GetPointCoordinates()
         {
             double[] crd = new double[2];
@@ -77,6 +89,10 @@ namespace DamianAutoCAD
             return crd;
         }
 
+        /// <summary>
+        /// Wskazanie prostokąta na ekranie 
+        /// </summary>
+        /// <returns>Współrzędne X,Y wierzchołków wskazanego prostokąta</returns>
         public static double[] GetRectangle()
         {
             double[] crd = new double[4];

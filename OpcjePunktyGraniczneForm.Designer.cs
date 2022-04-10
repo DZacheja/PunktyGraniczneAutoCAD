@@ -52,16 +52,19 @@ namespace DamianAutoCAD
             this.cboLayers = new System.Windows.Forms.ComboBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpLayers.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(33, 9);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(335, 24);
             this.label1.TabIndex = 0;
@@ -78,9 +81,10 @@ namespace DamianAutoCAD
             this.groupBox1.Controls.Add(this.txtPharameters);
             this.groupBox1.Controls.Add(this.cboEquals);
             this.groupBox1.Controls.Add(this.cboTypeValue);
-            this.groupBox1.Location = new System.Drawing.Point(24, 46);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(344, 107);
+            this.groupBox1.Size = new System.Drawing.Size(422, 107);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametry wyboru:";
@@ -194,9 +198,10 @@ namespace DamianAutoCAD
             // 
             this.groupBox2.Controls.Add(this.rbnSaveToLayer);
             this.groupBox2.Controls.Add(this.rbnSelect);
-            this.groupBox2.Location = new System.Drawing.Point(24, 159);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(344, 67);
+            this.groupBox2.Size = new System.Drawing.Size(422, 67);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parametry wyników";
@@ -233,9 +238,10 @@ namespace DamianAutoCAD
             this.grpLayers.Controls.Add(this.label5);
             this.grpLayers.Controls.Add(this.chkNewLayer);
             this.grpLayers.Controls.Add(this.cboLayers);
-            this.grpLayers.Location = new System.Drawing.Point(24, 261);
+            this.grpLayers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpLayers.Location = new System.Drawing.Point(0, 198);
             this.grpLayers.Name = "grpLayers";
-            this.grpLayers.Size = new System.Drawing.Size(344, 100);
+            this.grpLayers.Size = new System.Drawing.Size(422, 100);
             this.grpLayers.TabIndex = 3;
             this.grpLayers.TabStop = false;
             this.grpLayers.Text = "Warstwa:";
@@ -299,7 +305,7 @@ namespace DamianAutoCAD
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(293, 232);
+            this.btnStart.Location = new System.Drawing.Point(311, 3);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 4;
@@ -310,19 +316,28 @@ namespace DamianAutoCAD
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(27, 232);
+            this.lblInfo.Location = new System.Drawing.Point(3, 32);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(64, 13);
             this.lblInfo.TabIndex = 5;
             this.lblInfo.Text = "informacje...";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblInfo);
+            this.panel1.Controls.Add(this.btnStart);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 298);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(422, 54);
+            this.panel1.TabIndex = 6;
+            // 
             // OpcjePunktyGraniczneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 399);
-            this.Controls.Add(this.lblInfo);
-            this.Controls.Add(this.btnStart);
+            this.ClientSize = new System.Drawing.Size(422, 358);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.grpLayers);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -337,6 +352,8 @@ namespace DamianAutoCAD
             this.groupBox2.PerformLayout();
             this.grpLayers.ResumeLayout(false);
             this.grpLayers.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,5 +384,6 @@ namespace DamianAutoCAD
         private System.Windows.Forms.ComboBox cboTypeValue2;
         private System.Windows.Forms.RadioButton rbnCopy;
         private System.Windows.Forms.RadioButton rbnMove;
+        private System.Windows.Forms.Panel panel1;
     }
 }

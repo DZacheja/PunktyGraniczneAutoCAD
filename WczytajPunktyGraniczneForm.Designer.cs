@@ -31,7 +31,7 @@ namespace DamianAutoCAD
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtFile = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkSkipFirst = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -88,22 +88,22 @@ namespace DamianAutoCAD
             this.txtFile.Size = new System.Drawing.Size(314, 22);
             this.txtFile.TabIndex = 1;
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(333, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Wyszukaj...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSearch.Location = new System.Drawing.Point(333, 27);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(105, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Wyszukaj...";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.chkSkipFirst);
             this.groupBox1.Controls.Add(this.txtFile);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(25, 57);
             this.groupBox1.Name = "groupBox1";
@@ -499,7 +499,7 @@ namespace DamianAutoCAD
             this.txtTextHeight.Size = new System.Drawing.Size(41, 22);
             this.txtTextHeight.TabIndex = 0;
             this.txtTextHeight.Text = "1";
-            this.txtTextHeight.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtTextHeight.TextChanged += new System.EventHandler(this.txtTextHeight_TextChanged);
             // 
             // lblInfo
             // 
@@ -551,7 +551,7 @@ namespace DamianAutoCAD
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFile;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;

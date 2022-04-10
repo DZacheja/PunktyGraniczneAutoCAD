@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="PozyskanieInformacjiDWG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PunktGraniczny.cs" />
     <Compile Include="PunktyGraniczne.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,6 +90,7 @@
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="WczytajPunktyGraniczneForm.resx">
       <DependentUpon>WczytajPunktyGraniczneForm.cs</DependentUpon>

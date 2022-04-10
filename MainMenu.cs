@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * Program do wczytywnia i wybierania na rysunku punktów granicznych
+ * charakteruyzują go pełne atrybuty punktów geodezyjnych
+ * autor: Damian Zacheja
+ * 
+ */
 using System.Linq;
 using Autodesk.AutoCAD.ApplicationServices;
-using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 

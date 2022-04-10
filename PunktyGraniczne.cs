@@ -1,16 +1,25 @@
-﻿using Autodesk.AutoCAD.ApplicationServices;
+﻿/*
+ * Wczytywanie punktów granicznych do rysunku AutoCAD
+ * autor: Damian Zacheja
+ */
+using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Runtime;
 using System;
 using System.Collections.Generic;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
+using DZacheja_PunktyGraniczne;
 
 namespace DamianAutoCAD {
     public class PunktyGraniczne {
         private List<ObjectId> ToSelect;
         public bool error = false;
         public string errorMessage;
+
+        /// <summary>
+        /// Wczytanie bloków z punktami stabilizowanymi/niestabilizowanymi do rysunku
+        /// </summary>
         public void ImportBlks() {
             Document ThisDoc = Application.DocumentManager.MdiActiveDocument;
             DocumentCollection dm = Application.DocumentManager;
@@ -41,20 +50,24 @@ namespace DamianAutoCAD {
 
             //Przepisanie znalezionych bloków do innego pliku...
             IdMapping mapping = new IdMapping();
-            sourceDb.WblockCloneObjects(blocksIds, thisDb.BlockTableId, mapping, DuplicateRecordCloning.Replace, false);
+            sourceDb.WblockCloneObjects(blocksIds, thisDb.BlockTableId, mapping, DuplicateRecordCloning.Ignore, false);
             sourceDb.Dispose();
 
         }
 
-        public void AddBlockWithAttributes(Dictionary<string, string> dane) {
+        /// <summary>
+        /// Wstawanie bloku punktu w odpowiednie miejsce z odpowiednimi atrybutami
+        /// </summary>
+        /// <param name="dane">Kolekcja zawieająca parametry punktu</param>
+        public void AddBlockWithAttributes(PunktGraniczny pkt) {
             {
                 Document doc = Application.DocumentManager.MdiActiveDocument;
                 Database db = doc.Database;
                 using (DocumentLock docLoc = doc.LockDocument()) {
                     string BlockName = "";
                     BlockName = "PunktGranicznyNiestabilizowany";
-                    if (!String.IsNullOrEmpty(dane["STB"])) {
-                        if (Convert.ToInt32(dane["STB"]) > 2) {
+                    if (!String.IsNullOrEmpty(pkt.STB)) {
+                        if (Convert.ToInt32(pkt.STB) > 2) {
                             BlockName = "PunktGranicznyStabilizowany";
                         }
                     }
@@ -70,12 +83,12 @@ namespace DamianAutoCAD {
                         //Tworzenie nowego bloku..
                         //Punkt wstawienia
                         double X, Y;
-                        X = Convert.ToDouble(dane["X"].Replace(",", "."));
-                        Y = Convert.ToDouble(dane["Y"].Replace(",", "."));
+                        X = pkt.X;
+                        Y = pkt.Y;
 
                         Point3d insPT = new Point3d(X, Y, 0);
                         BlockReference block = new BlockReference(insPT, blockDef.ObjectId);
-                        block.Layer = dane["Layer"];
+                        block.Layer = pkt.layer;
 
                         ms.AppendEntity(block);
                         tr.AddNewlyCreatedDBObject(block, true);
@@ -85,9 +98,9 @@ namespace DamianAutoCAD {
                             if ((attDef != null) && (!attDef.Constant)) {
                                 using (AttributeReference attRef = new AttributeReference()) {
                                     attRef.SetAttributeFromBlock(attDef, block.BlockTransform);
-                                    attRef.TextString = dane[attRef.Tag];
+                                    attRef.TextString = pkt.SetValueByTag(attRef.Tag);
                                     if (attRef.Tag == "ID") {
-                                        attRef.Height = Convert.ToDouble(dane["TextHeight"]);
+                                        attRef.Height = pkt.txtHeight;
                                     }
                                     block.AttributeCollection.AppendAttribute(attRef);
                                     tr.AddNewlyCreatedDBObject(attRef, true);

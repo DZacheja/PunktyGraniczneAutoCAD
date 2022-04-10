@@ -1,15 +1,14 @@
-﻿using System;
+﻿/*
+ * Okno wyboru wczytanych punktów granicznych
+ * na podstawie wskanych przez użytkownika parametrów
+ * autor: Damian Zacheja
+ */
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DamianAutoCAD
-{
+namespace DamianAutoCAD {
     public partial class OpcjePunktyGraniczneForm : Form
     {
         public OpcjePunktyGraniczneForm()
@@ -17,27 +16,9 @@ namespace DamianAutoCAD
             InitializeComponent();
         }
 
-
-        private void rbnSaveToLayer_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbnSaveToLayer.Checked)
-            {
-                grpLayers.Visible = true;
-                this.Height = 438;
-                btnStart.Location = new Point(293, 356);
-            }
-        }
-
-        private void rbnSelect_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbnSelect.Checked)
-            {
-                grpLayers.Visible = false;
-                this.Height = 291;
-                btnStart.Location = new Point(293, 221);
-            }
-        }
-
+        /// <summary>
+        /// Wczytanie okna do selekcji punktow granicznych
+        /// </summary>
         private void OpcjePunktyGraniczneForm_Load(object sender, EventArgs e)
         {
             this.Height = 291;
@@ -54,6 +35,29 @@ namespace DamianAutoCAD
 
         }
 
+
+        /// <summary>
+        /// Zmiana opcji na zapisanie 
+        /// </summary>
+        private void rbnSaveToLayer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbnSaveToLayer.Checked)
+                grpLayers.Visible = true;
+        }
+
+        /// <summary>
+        /// Zmiana opcji na wybór elementów do zaznaczenia
+        /// </summary>
+        private void rbnSelect_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbnSelect.Checked)
+                grpLayers.Visible = false;
+        }
+
+        /// <summary>
+        /// Rozpoczęcie procedury selekcji/przeniesienia punktów
+        /// na podstawie wybranych parametrów wyszukiwania
+        /// </summary>
         private void btnStart_Click(object sender, EventArgs e)
         {
             PunktyGraniczne pgr = new PunktyGraniczne();
